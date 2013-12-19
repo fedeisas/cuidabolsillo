@@ -1,0 +1,70 @@
+{
+	"name": "fedeisas/cuidabolsillo",
+	"description": "Compará precios y cuida tu bolsillo - http://cuidabolsillo.com",
+	"keywords": ["tucuman", "hackaton", "laravel"],
+	"license": "MIT",
+	"repositories": [
+        {
+            "type" : "vcs",
+            "url": "https://github.com/fedeisas/hashids"
+        },
+        {
+            "type" : "vcs",
+            "url": "https://github.com/fedeisas/foursquare-php"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "haxx-se/curl",
+                "version": "1.0.0",
+                "dist": {
+                    "url": "http://curl.haxx.se/ca/cacert.pem",
+                    "type": "file"
+                }
+            }
+        }
+    ],
+	"require": {
+        "laravel/framework": "4.1.*",
+        "way/generators": "dev-master",
+        "mitch/hashids": "dev-master",
+        "thetwelvelabs/foursquare": "dev-master",
+        "haxx-se/curl": "1.0.0",
+        "iron-io/iron_mq": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.27",
+        "way/laravel-test-helpers": "dev-master",
+        "mockery/mockery": "0.8.0",
+        "squizlabs/php_codesniffer": "1.*",
+        "jakub-onderka/php-parallel-lint": "*",
+        "jakub-onderka/php-console-highlighter": "dev-master"
+    },
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/lib",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+		]
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan optimize"
+		],
+		"post-update-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev"
+}

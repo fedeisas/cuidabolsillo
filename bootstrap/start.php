@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	'local' => array('atlantis'),
-    'testing' => array('atlantis'),
+    'testing' => array('*travis*'),
     'production' => array('web302.webfaction.com'),
 
 ));

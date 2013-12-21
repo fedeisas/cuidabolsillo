@@ -60,14 +60,14 @@
 	},
 	"scripts": {
 		"post-install-cmd": [
-			"php -c=`pwd` artisan optimize"
+			"php artisan optimize"
 		],
 		"post-update-cmd": [
-			"php -c=`pwd` artisan clear-compiled",
-			"php -c=`pwd` artisan optimize"
+			"php artisan clear-compiled",
+			"php artisan optimize"
 		],
 		"post-create-project-cmd": [
-			"php -c=`pwd` artisan key:generate"
+			"php artisan key:generate"
 		]
 	},
 	"config": {

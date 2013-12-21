@@ -36,7 +36,8 @@
         "haxx-se/curl": "1.0.0",
         "iron-io/iron_mq": "dev-master",
         "frozennode/administrator": "dev-master",
-        "fuhrmann/larageo-plugin": "dev-master"
+        "fuhrmann/larageo-plugin": "dev-master",
+		"vlucas/phpdotenv": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.27",

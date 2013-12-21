@@ -5,12 +5,12 @@ php:
 
 before_script:
   - composer self-update
-  - composer install --prefer-source --no-interaction --dev
+  - composer install --dev
 
 script:
-  - ./vendor/bin/phpcs -p --standard=phpcs.xml ./app/
+  - ./vendor/bin/phpcs --standard=phpcs.xml ./app/
   - ./vendor/bin/parallel-lint ./app/
-  - phpunit -d memory_limit=1024M
+  - ./vendor/bin/phpunit
 
 addons:
   hosts:

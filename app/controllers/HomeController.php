@@ -6,9 +6,9 @@ class HomeController extends BaseController
     {
         $title = Config::get('custom.name') . " | Inicio";
 
-        $products = Product::remember(60)->orderBy('name', 'asc')->get();
+        $products = Product::remember(120)->orderBy('name', 'asc')->get();
 
-        $province = Province::remember(60)->findOrFail(Session::get('province_id'));
+        $province = Province::remember(120)->findOrFail(Session::get('province_id'));
 
         $select = array();
 

@@ -9,6 +9,7 @@ class PriceReportController extends BaseController
     {
         $this->productDataRepo = $productDataRepo;
     }
+
     /**
      * Store a newly created resource in storage.
      *

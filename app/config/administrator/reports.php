@@ -29,13 +29,13 @@ return array(
             'relationship' => 'product',
             'select' => "(:table).name",
         ),
-        'price' => array(
-            'title' => 'Precio',
-        ),
-        'product_id' => array(
+        'business_id' => array(
             'title' => "Negocio",
             'relationship' => 'business',
             'select' => "(:table).name",
+        ),
+        'price' => array(
+            'title' => 'Precio',
         ),
         'map_link' => array(
             'title' => 'Mapa',

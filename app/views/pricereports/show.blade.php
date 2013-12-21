@@ -2,17 +2,14 @@
 
 @section('content')
 
-  <style>
-  .variation {
-    font-size: 50px;
-    font-weight: bolder;
-  }
-  </style>
-
   <div class="container">
 
     <div class="row" style="margin-bottom: 20px;">
       <div class="col-xs-12 col-md-8 col-md-offset-2">
+
+        <div class="page-header">
+          <h1 class="text-center">{{{ $priceReport->product->name }}}</h1>
+        </div>
 
         @if($percentVariation < 0)
           <h1 class="text-center text-success variation">
@@ -49,48 +46,11 @@
 
         <hr>
 
-        <p class="text-center">Datos del IBP ({{ date('m') }}, {{ date('Y') }})</p>
-        <div class="table-responsive">
-          <table class="table table-striped text-center">
-            <thead>
-              <tr>
-                <th class="text-center">Mediana</th>
-                <th class="text-center">Mínimo</th>
-                <th class="text-center">Máximo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>${{ number_format($ibp->first()->median, 2) }}</td>
-                <td>${{ number_format($ibp->first()->min, 2) }}</td>
-                <td>${{ number_format($ibp->first()->max, 2) }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        @include('widgets.ibp', array('ibp' => $ibp))
 
         <hr>
 
-        <div class="price-history">
-            <div class="list-group">
-              @foreach($priceHistory as $history)
-
-                <div class="list-group-item">
-                  <h4 class="list-group-item-heading">$ {{{ number_format($history->price, 2) }}}</h4>
-
-                  @if($history->business_id)
-                    <p class="list-group-item-text">
-                      <strong>{{{ $history->created_at->diffForHumans() }}}</strong> en <a href="#"><i class="glyphicon glyphicon-map-marker"></i> {{{ $history->business->name }}}, {{{ $history->business->location_address }}}</a>
-                    </p>
-                  @else
-                    <p class="list-group-item-text">
-                      <strong>{{{ $history->created_at->diffForHumans() }}}</strong> en {{{ $history->latitude }}}, {{{ $history->latitude }}}
-                    </p>
-                  @endif
-                </div>
-            @endforeach
-            </div>
-        </div>
+        @include('widgets.priceHistory', array('priceHistory' => $priceHistory))
 
         <hr>
 
@@ -98,12 +58,8 @@
 
       </div>
     </div>
-
-
-    <!-- /END THE FEATURETTES -->
     @include('partials.footer')
-
-  </div><!-- /.container -->
+  </div>
 @stop
 
 @section('extrajs')

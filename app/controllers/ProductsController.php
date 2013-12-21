@@ -1,8 +1,7 @@
 <?php
 
-class ProductController extends BaseController
+class ProductsController extends BaseController
 {
-
     public function index()
     {
         $title = Config::get('custom.name') . " | Productos";

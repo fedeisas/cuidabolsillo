@@ -9,6 +9,11 @@ class IBP extends Eloquent
 
     public $table = "ibp";
 
+    public function getDates()
+    {
+        return array('reported_at', 'created_at', 'updated_at');
+    }
+
     public function product()
     {
         return $this->belongsTo('Product');

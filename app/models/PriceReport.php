@@ -24,6 +24,11 @@ class PriceReport extends Eloquent
         return $this->belongsTo('Business', 'business_id');
     }
 
+    public function province()
+    {
+        return $this->belongsTo('Province', 'province_id');
+    }
+
     public function getHashAttribute()
     {
         return Hashids::encrypt($this->id);

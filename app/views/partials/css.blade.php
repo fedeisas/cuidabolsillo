@@ -9,11 +9,9 @@
 <![endif]-->
 
 <style type="text/css">
-  body {
-    padding-top: 80px;
-  }
-  .starter-template {
-    padding: 40px 15px;
-    text-align: center;
-  }
+  body { padding-top: 80px; }
+  .starter-template { padding: 40px 15px; text-align: center; }
+  .page-header { margin-top: 0px; }
+  .page-header h1 { margin-top: 0px; }
+  h1.variation { font-size: 50px; font-weight: bolder; }
 </style>

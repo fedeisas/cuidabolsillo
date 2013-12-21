@@ -5,9 +5,12 @@ class PriceReportController extends BaseController
 
     protected $foursquare;
 
-    public function __construct()
+    protected $productDataRepo;
+
+    public function __construct(ProductDataRepository $productDataRepo)
     {
         $this->foursquare = new FoursquareVenueFinder;
+        $this->productDataRepo = $productDataRepo;
     }
     /**
      * Store a newly created resource in storage.
@@ -24,6 +27,7 @@ class PriceReportController extends BaseController
 
         $priceReport = PriceReport::create(array(
             'product_id' => Input::get('product_id'),
+            'province_id' => Session::get('province_id'),
             'price' => Input::get('price'),
             'latitude' => Input::get('latitude'),
             'longitude' => Input::get('longitude'),
@@ -79,18 +83,14 @@ class PriceReportController extends BaseController
         $percentVariation = getVariation($priceReport->price, $averagePrice);
 
         // Price history
-        $priceHistory = PriceReport::with('business')
-                                   ->where('product_id', $priceReport->product_id)
-                                   ->where('id', '!=', $priceReportId)
-                                   ->orderBy('created_at', 'desc')
-                                   ->get();
+        $priceHistory = $this->productDataRepo->getRecentHistory(
+            $priceReport->product_id,
+            Session::get('province_id')
+        );
 
         // IBP data
-        $ibp = IBP::where('product_id', $priceReport->product_id)
-                  ->orderBy('created_at', 'asc')
-                  ->take(1)
-                  ->get();
-                  dd($ibp);
+        $ibp = $this->productDataRepo->getIBP($priceReport->product_id, Session::get('province_id'));
+
         return View::make(
             'pricereports.show',
             compact(

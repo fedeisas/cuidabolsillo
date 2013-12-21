@@ -11,3 +11,7 @@ script:
   - ./vendor/bin/phpcs -p --standard=phpcs.xml ./app/
   - ./vendor/bin/parallel-lint ./app/
   - phpunit -d memory_limit=1024M
+
+addons:
+  hosts:
+    - travis

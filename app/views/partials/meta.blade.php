@@ -9,9 +9,19 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="CuidaBolsillo">
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="format-detection" content="telephone=no">
+<meta name="HandheldFriendly" content="true" />
+<meta http-equiv="x-rim-auto-match" content="none" />
+
+<meta property="og:title" content="{{{ $title }}}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="{{{ route('home') }}}"/>
+<meta property="og:image" content="{{{ asset('img/ios/AppIcon76x76@2x.png') }}}"/>
+<meta property="og:site_name" content="{{{ Config::get('custom.name') }}}"/>
+<meta property="og:description" content="CuidaBolsillo.com te permite comparar precios en tu barrio para ahorrar dinero."/>
 
 <title>{{{ $title }}}</title>
 <!-- env: {{ App::environment() }} -->

@@ -4,5 +4,4 @@ composer.phar
 composer.lock
 .DS_Store
 Thumbs.db
-php.ini
-env.php
+.env

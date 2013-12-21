@@ -34,22 +34,22 @@ class PriceReportController extends BaseController
             'session_id' => Session::getId()
         ));
 
-        $possibilities = array();
-
         if ($priceReport->latitude && $priceReport->longitude) {
 
             $venues = $this->foursquare->search('', null, $priceReport->latitude, $priceReport->longitude);
+            $possibilities = new Illuminate\Support\Collection;
 
             foreach ($venues as $venue) {
                 if (!Business::where('foursquare_id', $venue['foursquare_id'])->count()) {
-                    $possibilities[] = Business::create($venue);
+                    $possibilities->push(Business::create($venue));
                 } else {
-                    $possibilities[] = Business::where('foursquare_id', $venue['foursquare_id'])->get()->first();
+                    $possibilities->push(Business::where('foursquare_id', $venue['foursquare_id'])->get()->first());
                 }
             }
 
-            if (count($possibilities)) {
-                $priceReport->business_id = $possibilities[0]->id;
+            if ($possibilities->count()) {
+                $priceReport->possible_businesses = serialize($possibilities->lists('id'));
+                $priceReport->save();
             }
         }
 

@@ -10,7 +10,7 @@ class ProvincesController extends BaseController
      */
     public function index()
     {
-        $provinces = Province::orderBy('name', 'asc')->get();
+        $provinces = Province::orderBy('name', 'asc')->remember(60)->get();
         $title = Config::get('custom.name') . " | Seleccionar Provincia";
         return View::make('provinces.index', compact('provinces', 'title'));
     }
@@ -26,7 +26,6 @@ class ProvincesController extends BaseController
             array('id' => $id),
             array('id' => 'required|numeric|exists:provinces,id')
         );
-
 
         if ($validator->passes()) {
             Session::put('province_id', $id);

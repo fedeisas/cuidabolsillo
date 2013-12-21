@@ -111,6 +111,7 @@ return array(
         'Mitch\Hashids\HashidsServiceProvider',
         'Frozennode\Administrator\AdministratorServiceProvider',
         'Fuhrmann\LarageoPlugin\ServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 
     ),
 

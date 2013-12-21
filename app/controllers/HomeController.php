@@ -1,23 +1,21 @@
 <?php
 
-class HomeController extends BaseController {
+class HomeController extends BaseController
+{
+    public function index()
+    {
+        $title = Config::get('custom.name') . " | Inicio";
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+        $products = Product::orderBy('name', 'asc')->get();
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
+        $province = Province::findOrFail(Session::get('province_id'));
 
+        $select = array();
+
+        $products->each(function ($product) use (&$select) {
+            $select[(int) $product->id] = $product->name;
+        });
+
+        return View::make('home', compact('title', 'products', 'select', 'province'));
+    }
 }

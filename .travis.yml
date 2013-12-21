@@ -1,0 +1,13 @@
+language: php
+
+php:
+  - 5.4
+
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
+script:
+  - ./vendor/bin/phpcs -p --standard=phpcs.xml ./app/
+  - ./vendor/bin/parallel-lint ./app/
+  - phpunit -d memory_limit=1024M

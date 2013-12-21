@@ -17,10 +17,5 @@
   <exclude-pattern>./app/lang/*</exclude-pattern>
   <exclude-pattern>./app/views/*</exclude-pattern>
   <exclude-pattern>./app/storage/*</exclude-pattern>
-  <!-- <exclude-pattern>./app/tests/*</exclude-pattern> -->
-  <exclude-pattern>./app/database/*</exclude-pattern>
-  <exclude-pattern>./app/libraries/GoogleMaps/*</exclude-pattern>
-  <exclude-pattern>./app/libraries/GooglePlaces/*</exclude-pattern>
-  <exclude-pattern>./app/libraries/Scrapey/*</exclude-pattern>
 
 </ruleset>

@@ -3,13 +3,10 @@
 class PriceReportController extends BaseController
 {
 
-    protected $foursquare;
-
     protected $productDataRepo;
 
     public function __construct(ProductDataRepository $productDataRepo)
     {
-        $this->foursquare = new FoursquareVenueFinder;
         $this->productDataRepo = $productDataRepo;
     }
     /**
@@ -33,25 +30,6 @@ class PriceReportController extends BaseController
             'longitude' => Input::get('longitude'),
             'session_id' => Session::getId()
         ));
-
-        if ($priceReport->latitude && $priceReport->longitude) {
-
-            $venues = $this->foursquare->search('', null, $priceReport->latitude, $priceReport->longitude);
-            $possibilities = new Illuminate\Support\Collection;
-
-            foreach ($venues as $venue) {
-                if (!Business::where('foursquare_id', $venue['foursquare_id'])->count()) {
-                    $possibilities->push(Business::create($venue));
-                } else {
-                    $possibilities->push(Business::where('foursquare_id', $venue['foursquare_id'])->get()->first());
-                }
-            }
-
-            if ($possibilities->count()) {
-                $priceReport->possible_businesses = serialize($possibilities->lists('id'));
-                $priceReport->save();
-            }
-        }
 
         return Redirect::route('pricereport.show', $priceReport->hash);
     }

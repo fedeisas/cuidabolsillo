@@ -41,6 +41,10 @@ return array(
      * The editable fields
      */
     'edit_fields' => array(
+        'id' => array(
+            'type' => 'key',
+            'title' => 'ID'
+        ),
         'email' => array(
             'title' => 'Email',
             'type' => 'text'

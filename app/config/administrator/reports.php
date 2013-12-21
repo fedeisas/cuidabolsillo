@@ -6,11 +6,11 @@
 
 return array(
 
-    'title' => 'IBP',
+    'title' => 'Reportes',
 
-    'single' => 'IBP',
+    'single' => 'reporte',
 
-    'model' => 'IBP',
+    'model' => 'PriceReport',
 
     /**
      * The display columns
@@ -29,17 +29,20 @@ return array(
             'relationship' => 'product',
             'select' => "(:table).name",
         ),
-        'median' => array(
-            'title' => 'Mediana',
+        'price' => array(
+            'title' => 'Precio',
         ),
-        'min' => array(
-            'title' => 'Mínimo',
+        'product_id' => array(
+            'title' => "Negocio",
+            'relationship' => 'business',
+            'select' => "(:table).name",
         ),
-        'max' => array(
-            'title' => 'Máximo',
+        'map_link' => array(
+            'title' => 'Mapa',
+            'output' => '<a href="(:value)" target="_blank">Mapa</a>',
         ),
-        'reported_at' => array(
-            'title' => 'Fecha Reporte IBP'
+        'created_at' => array(
+            'title' => 'Fecha'
         ),
     ),
 
@@ -86,27 +89,27 @@ return array(
             'title' => 'Producto',
             'name_field' => 'name'
         ),
-        'median' => array(
+        'price' => array(
             'type' => 'number',
             'symbol' => '$',
             'decimals' => 2,
-            'name_field' => 'Mediana'
+            'name_field' => 'Precio'
         ),
-        'min' => array(
-            'type' => 'number',
-            'symbol' => '$',
-            'decimals' => 2,
-            'name_field' => 'Mínimo'
+        'latitude' => array(
+            'title' => 'Latitud',
+            'editable' => false
         ),
-        'max' => array(
-            'type' => 'number',
-            'symbol' => '$',
-            'decimals' => 2,
-            'name_field' => 'Máximo'
+        'longitude' => array(
+            'title' => 'Longitud',
+            'editable' => false
         ),
-        'reported_at' => array(
-            'title' => 'Fecha Reporte IBP',
-            'type' => 'date',
-        )
+        'business' => array(
+            'type' => 'relationship',
+            'title' => 'Negocio',
+            // 'autocomplete' => true,
+            // 'num_options' => 7,
+            'search_fields' => array("CONCAT(name, ' ', location_address)"),
+            'name_field' => "large_name"
+        ),
     ),
 );

@@ -57,6 +57,7 @@ return array(
         'ibp',
         'provinces',
         'users',
+        'reports',
     ),
 
     /**

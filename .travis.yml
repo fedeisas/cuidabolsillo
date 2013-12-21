@@ -4,6 +4,8 @@ php:
   - 5.4
 
 before_script:
+  - mysql -e 'create database cuidabolsillo_testing;'
+  - cp .env.example .env
   - composer self-update
   - composer install --dev
 

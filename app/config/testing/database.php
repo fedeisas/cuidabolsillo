@@ -1,12 +1,14 @@
 <?php
 
 return array(
-    'default' => 'sqlite',
+    'default' => 'mysql',
     'connections' => array(
-        'sqlite' => array(
-            'driver'   => 'sqlite',
-            'database' => ':memory:',
-            'prefix'   => '',
+        'mysql' => array(
+            'driver'    => 'mysql',
+            'host'      => '127.0.0.1',
+            'database'  => 'cuidabolsillo_testing',
+            'username'  => 'travis',
+            'password'  => ''
         )
     )
 );

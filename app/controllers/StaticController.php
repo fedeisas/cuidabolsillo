@@ -5,7 +5,7 @@ class StaticController extends BaseController
 
     public function about()
     {
-        $title = Config::get('custom.name') . " | About";
+        $title = Config::get('custom.name') . " | Cómo funciona?";
         return View::make('static.about', compact('title'));
     }
 

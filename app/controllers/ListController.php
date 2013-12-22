@@ -11,7 +11,7 @@ class ListController extends \BaseController
     public function index()
     {
         $lists = ProductList::orderBy('name', 'asc')->get();
-        $title = Config::get('custom.name') . " | Lists";
+        $title = Config::get('custom.name') . " | Listas";
         return View::make('lists.index', compact('title', 'lists'));
     }
 
@@ -21,8 +21,12 @@ class ListController extends \BaseController
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($hash)
     {
-        echo "Lista: ". $id;
+        $listID = Hashids::decrypt($hash)[0];
+        $list = PriceReport::find($listID);
+
+        $title = Config::get('custom.name') . " | Lista | " . $list->name;
+        return View::make('lists.index', compact('title', 'list'));
     }
 }

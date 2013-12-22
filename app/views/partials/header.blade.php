@@ -31,7 +31,7 @@
             <li class="{{{ (Route::current() == 'about') ? 'active' : '' }}}">
               <a href="{{{ route('about') }}}">
                 <i class="glyphicon glyphicon-question-sign"></i>
-                Qué es esto?
+                Cómo funciona?
               </a>
             </li>
           </ul>

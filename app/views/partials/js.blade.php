@@ -1,6 +1,7 @@
 <script src="{{{ asset('js/ios.js') }}}"></script>
 <script src="{{{ asset('js/jquery.min.js') }}}"></script>
 <script src="{{{ asset('js/bootstrap.min.js') }}}"></script>
+<script src="{{{ asset('js/app.js') }}}"></script>
 
 @if (App::environment() == 'production')
 <script>

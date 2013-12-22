@@ -12,7 +12,7 @@ class StaticControllerTest extends TestCase
     public function testAboutPage()
     {
         $this->call('GET', route('about'));
-        $this->see('Qué es');
+        $this->see('CuidaBolsillo');
         $this->assertTrue($this->client->getResponse()->isOk());
     }
 

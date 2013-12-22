@@ -18,4 +18,5 @@
       </tbody>
     </table>
   </div>
+  <hr>
 @endif

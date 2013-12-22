@@ -47,12 +47,7 @@
         <hr>
 
         @include('widgets.ibp', array('ibp' => $ibp))
-
-        <hr>
-
         @include('widgets.priceHistory', array('priceHistory' => $priceHistory))
-
-        <hr>
 
         <div id="chart" style="width: 100%; height: 500px;"></div>
 

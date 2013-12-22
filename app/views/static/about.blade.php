@@ -11,7 +11,7 @@
         </div>
 
         <h4>Cómo nació?</h4>
-        <p>Esta aplicación fue desarrollada el 15 de Diciembre de 2013 en el marco del primer <a href="http://tucapps.com.ar/" target="_blank">Hackathon Ciudadano</a> en la ciudad de <a href="http://es.wikipedia.org/wiki/San_Miguel_de_Tucum%C3%A1n" target="_blank">San Miguel de Tucumán</a>. La aplicación aún se encuentro en etapa de pruebas (BETA).</p>
+        <p>Esta aplicación fue desarrollada el 15 de Diciembre de 2013 en el marco del primer <a href="http://tucapps.com.ar/" target="_blank">Hackathon Ciudadano</a> organizado por el <a target="_blank" href="http://burocoworking.com.ar">Buró Coworking</a> en la ciudad de <a href="http://es.wikipedia.org/wiki/San_Miguel_de_Tucum%C3%A1n" target="_blank">San Miguel de Tucumán</a>. La aplicación aún se encuentra en etapa de pruebas (BETA).</p>
 
         <hr>
 

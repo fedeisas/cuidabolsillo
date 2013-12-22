@@ -24,9 +24,6 @@
         @endif
 
         @include('widgets.ibp', array('ibp' => $ibp))
-
-        <hr>
-
         @include('widgets.priceHistory', array('priceHistory' => $priceHistory))
 
       </div>

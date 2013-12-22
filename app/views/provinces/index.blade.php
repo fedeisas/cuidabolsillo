@@ -14,6 +14,12 @@
         @endif
 
         <div class="list-group">
+          <a href="{{{ $provinces->get(22)->set_link }}}" class="list-group-item" title="{{{ $provinces->get(22)->name }}}">
+            {{{ $provinces->get(22)->name }}}
+          </a>
+        </div>
+
+        <div class="list-group">
           @foreach($provinces as $province)
             <a href="{{{ $province->set_link }}}" class="list-group-item" title="{{{ $province->name }}}">
               {{{ $province->name }}}

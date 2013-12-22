@@ -50,5 +50,5 @@
 @stop
 
 @section('extrajs')
-  <script src="/js/form.js" type="text/javascript"></script>
+  <script src="{{{ asset('js/form.js') }}}" type="text/javascript"></script>
 @stop

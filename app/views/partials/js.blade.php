@@ -1,7 +1,18 @@
-<script src="{{{ asset('js/ios.js') }}}"></script>
-<script src="{{{ asset('js/jquery.min.js') }}}"></script>
-<script src="{{{ asset('js/bootstrap.min.js') }}}"></script>
-<script src="{{{ asset('js/app.js') }}}"></script>
+<script type="text/javascript">
+    var a = document.getElementsByTagName("a");
+    for(var i = 0; i < a.length; i++) {
+        if(!a[i].onclick && a[i].getAttribute("target") != "_blank") {
+            a[i].onclick = function() {
+                window.location = this.getAttribute("href");
+                return false;
+            }
+        }
+    }
+</script>
+
+<script src="{{{ asset('js/jquery.min.js') }}}" type="text/javascript"></script>
+<script src="{{{ asset('js/bootstrap.min.js') }}}" type="text/javascript"></script>
+
 
 @if (App::environment() == 'production')
 <script>

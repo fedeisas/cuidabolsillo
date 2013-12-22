@@ -7,10 +7,29 @@
       <div class="col-xs-12 col-md-8 col-md-offset-2">
 
         <div class="page-header">
-          <h1 class="text-center">Cómo funciona?</h1>
+          <h1 class="text-center">CuidaBolsillo.com</h1>
         </div>
 
-        <p>Esta aplicación fue desarrollada el 15 de Diciembre de 2013 en el marco del primer <a href="http://tucapps.com.ar/" target="_blank">Hackathon Ciudadano</a> en la ciudad de <a href="http://es.wikipedia.org/wiki/San_Miguel_de_Tucum%C3%A1n" target="_blank">San Miguel de Tucumán</a>.</p>
+        <h4>Cómo nació?</h4>
+        <p>Esta aplicación fue desarrollada el 15 de Diciembre de 2013 en el marco del primer <a href="http://tucapps.com.ar/" target="_blank">Hackathon Ciudadano</a> en la ciudad de <a href="http://es.wikipedia.org/wiki/San_Miguel_de_Tucum%C3%A1n" target="_blank">San Miguel de Tucumán</a>. La aplicación aún se encuentro en etapa de pruebas (BETA).</p>
+
+        <hr>
+
+        <h4>Cómo funciona?</h4>
+
+        <p>Cada vez que estés por comprar algo, pero no estás seguro si el precio es justo, esta es la aplicación que necesitás.</p>
+        <p>Cada usuario que consulta un precio está, a su vez, informando un precio en un lugar determinado. Esos valiosos datos sumados a los generosamente provistos por el <a target="_blank" href="http://www.cippes.org/">CIPPES</a>, nos permiten informarte: </p>
+        <ul class="list-unstyled">
+          <li>
+            <i class="glyphicon glyphicon-ok"></i> Cuánto se desvía el precio que estás por pagar del promedio de tu provincia
+          </li>
+          <li>
+            <i class="glyphicon glyphicon-ok"></i> La evolución del precio y del índice IBP en tu provincia para ese producto
+          </li>
+          <li>
+            <i class="glyphicon glyphicon-ok"></i> Sugerencias de lugares cercanos donde comprar ese producto a menor precio
+          </li>
+        </ul>
 
         <hr>
 

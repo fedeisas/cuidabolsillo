@@ -38,7 +38,7 @@ class ProductsController extends BaseController
 
         return View::make(
             'products.show',
-            compact('title', 'product','priceHistory', 'ibp', 'province', 'suggestedPrice')
+            compact('title', 'product', 'priceHistory', 'ibp', 'province', 'suggestedPrice')
         );
     }
 }

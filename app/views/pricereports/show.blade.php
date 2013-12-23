@@ -49,7 +49,7 @@
         @include('widgets.ibp', array('ibp' => $ibp))
         @include('widgets.priceHistory', array('priceHistory' => $priceHistory))
 
-        <div id="chart" style="width: 100%; height: 500px;"></div>
+        <div id="chart" style="width: 100%; height: 400px;"></div>
 
       </div>
     </div>
@@ -63,13 +63,8 @@
   google.load("visualization", "1", {packages:["corechart"]});
   google.setOnLoadCallback(drawChart);
   function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Fecha', 'Precio'],
-      ['2013-12-01',  14.20],
-      ['2013-12-02',  15.48],
-      ['2013-12-03',  12.45],
-      ['2013-12-04',  24.30]
-    ]);
+    var data = new google.visualization.DataTable({{ json_encode($chartData) }});
+
 
     var options = {
       title: 'Evolución del Precio'

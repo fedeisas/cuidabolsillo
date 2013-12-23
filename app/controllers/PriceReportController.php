@@ -4,10 +4,12 @@ class PriceReportController extends BaseController
 {
 
     protected $productDataRepo;
+    protected $chart;
 
-    public function __construct(ProductDataRepository $productDataRepo)
+    public function __construct(ProductDataRepository $productDataRepo, ChartData $chart)
     {
         $this->productDataRepo = $productDataRepo;
+        $this->chart = $chart;
     }
 
     /**
@@ -69,6 +71,8 @@ class PriceReportController extends BaseController
         // IBP data
         $ibp = $this->productDataRepo->getIBP($priceReport->product_id, Session::get('province_id'));
 
+        $chartData = $this->chart->productChart($priceReport->product_id, Session::get('province_id'));
+
         return View::make(
             'pricereports.show',
             compact(
@@ -77,7 +81,8 @@ class PriceReportController extends BaseController
                 'suggestedPrice',
                 'deviation',
                 'priceHistory',
-                'ibp'
+                'ibp',
+                'chartData'
             )
         );
     }

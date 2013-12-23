@@ -39,14 +39,15 @@ class RandomPriceGeneratorCommand extends Command
     public function fire()
     {
         for ($i=0; $i < 1000; $i++) {
-            PriceReport::create(
+            $report = PriceReport::create(
                 array(
                     'product_id' => rand(1, 50),
+                    'province_id' => 5,
                     'price' => rand(1, 100),
-                    'latitude' => -26.830147171010314,
-                    'longitude' => -65.2021293062202,
+                    'created_at' => Carbon\Carbon::now()->subDays(rand(60, 90))
                 )
             );
+            $this->info('Created report:' . $report->id);
         }
     }
 

@@ -48,18 +48,17 @@ class PriceReportController extends BaseController
         $priceReportId = Hashids::decrypt($hash)[0];
         $priceReport = PriceReport::find($priceReportId);
 
-        // Average Price last 7 days
-        $averagePrice = PriceReport::where('product_id', $priceReport->product_id)
-                                   ->where('id', '!=', $priceReportId)
-                                   ->where('created_at', '>', Carbon\Carbon::now()->subWeek())
-                                   ->avg('price');
+        // Suggested Price
+        $suggestedPrice = $this->productDataRepo->getSuggestedPrice(
+            $priceReport->product_id,
+            Session::get('province_id')
+        );
 
-        if (is_null($averagePrice)) {
-            $averagePrice = $priceReport->price;
-        }
-
-        // Percent variation
-        $percentVariation = getVariation($priceReport->price, $averagePrice);
+        // Percentual Deviation from suggested price
+        $deviation = $this->productDataRepo->getDeviation(
+            $priceReport->id,
+            Session::get('province_id')
+        );
 
         // Price history
         $priceHistory = $this->productDataRepo->getRecentHistory(
@@ -75,8 +74,8 @@ class PriceReportController extends BaseController
             compact(
                 'title',
                 'priceReport',
-                'percentVariation',
-                'averagePrice',
+                'suggestedPrice',
+                'deviation',
                 'priceHistory',
                 'ibp'
             )

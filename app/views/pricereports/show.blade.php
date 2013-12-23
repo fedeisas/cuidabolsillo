@@ -11,29 +11,29 @@
           <h1 class="text-center">{{{ $priceReport->product->name }}}</h1>
         </div>
 
-        @if($percentVariation < 0)
+        @if($deviation <= 0)
           <h1 class="text-center text-success variation">
-            <i class="glyphicon glyphicon-arrow-down"></i> {{{ number_format($percentVariation, 2) }}}%
+            <span class="label label-success">{{{ number_format(abs($deviation), 2) }}}%</span>
+          </h1>
+
+          <h1 class="text-center text-success">
+            de ahorro
           </h1>
 
           <p class="text-center text-muted">
-           $ {{{ number_format($averagePrice, 2) }}} promedio en los últimos 7 días
+           $ {{{ number_format($suggestedPrice, 2) }}} sugerido | $ {{{ number_format($priceReport->price, 2) }}} tu precio
           </p>
-        @elseif($percentVariation > 0)
+        @elseif($deviation > 0)
           <h1 class="text-center text-danger variation">
-            <i class="glyphicon glyphicon-arrow-up"></i> {{{ number_format($percentVariation, 2) }}}%
+            <span class="label label-danger">{{{ number_format(abs($deviation), 2) }}}%</span>
+          </h1>
+
+          <h1 class="text-center text-danger">
+            de sobreprecio
           </h1>
 
           <p class="text-center text-muted">
-           $ {{{ number_format($averagePrice, 2) }}} promedio en los últimos 7 días
-          </p>
-        @else
-          <h1 class="text-center">
-            {{{ number_format($percentVariation, 2) }}}%
-          </h1>
-
-          <p class="text-center text-muted">
-           $ {{{ number_format($averagePrice, 2) }}} promedio en los últimos 7 días
+           $ {{{ number_format($suggestedPrice, 2) }}} sugerido | $ {{{ number_format($priceReport->price, 2) }}} tu precio
           </p>
         @endif
 

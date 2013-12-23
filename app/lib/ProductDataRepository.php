@@ -42,4 +42,17 @@ class ProductDataRepository
                           ->orderBy('created_at', 'desc')
                           ->get();
     }
+
+    public function getDeviation($report_id, $province_id)
+    {
+        $priceReport = PriceReport::find($report_id);
+
+        $suggestedPrice = $this->getSuggestedPrice($priceReport->product_id, $province_id);
+
+        if (!$suggestedPrice) {
+            return 0;
+        }
+
+        return ($priceReport->price - $suggestedPrice) / $suggestedPrice * 100;
+    }
 }

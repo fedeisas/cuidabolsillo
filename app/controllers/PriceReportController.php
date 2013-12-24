@@ -25,12 +25,25 @@ class PriceReportController extends BaseController
             return Redirect::route('home')->withMessage('Debe ingresar un precio.');
         }
 
+        $latitude = Input::get('latitude');
+        $longitude = Input::get('longitude');
+
+        if (!$latitude || !$longitude) {
+            $ip = Request::getClientIp();
+            if ($ip == '127.0.0.1') {
+                $ip = '186.109.223.200';
+            }
+            $location = GeoIP::getLocation($ip);
+            $latitude = $location['lat'];
+            $longitude = $location['lon'];
+        }
+
         $priceReport = PriceReport::create(array(
             'product_id' => Input::get('product_id'),
             'province_id' => Session::get('province_id'),
             'price' => Input::get('price'),
-            'latitude' => Input::get('latitude'),
-            'longitude' => Input::get('longitude'),
+            'latitude' => $latitude,
+            'longitude' => $longitude,
             'session_id' => Session::getId()
         ));
 

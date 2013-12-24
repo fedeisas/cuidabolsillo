@@ -38,7 +38,8 @@
         "frozennode/administrator": "dev-master",
         "fuhrmann/larageo-plugin": "dev-master",
         "vlucas/phpdotenv": "dev-master",
-        "barryvdh/laravel-debugbar": "dev-master"
+        "barryvdh/laravel-debugbar": "dev-master",
+        "torann/geoip": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.27",

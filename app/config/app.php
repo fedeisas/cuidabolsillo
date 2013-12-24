@@ -112,6 +112,7 @@ return array(
         'Frozennode\Administrator\AdministratorServiceProvider',
         'Fuhrmann\LarageoPlugin\ServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
+        'Torann\GeoIP\GeoIPServiceProvider',
 
     ),
 
@@ -181,6 +182,7 @@ return array(
 
         'Hashids' => 'Mitch\Hashids\Hashids',
         'LarageoPlugin'   => 'Fuhrmann\LarageoPlugin\Facade',
+        'GeoIP' => 'Torann\GeoIP\GeoIPFacade',
 
     ),
 

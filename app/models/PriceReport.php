@@ -27,17 +27,19 @@ class PriceReport extends Eloquent
                 $venues = $foursquare->search('', null, $priceReport->latitude, $priceReport->longitude);
                 $possibilities = new Illuminate\Support\Collection;
 
-                foreach ($venues as $venue) {
-                    if (!Business::where('foursquare_id', $venue['foursquare_id'])->count()) {
-                        $possibilities->push(Business::create($venue));
-                    } else {
-                        $possibilities->push(Business::where('foursquare_id', $venue['foursquare_id'])->get()->first());
+                if ($venues) {
+                    foreach ($venues as $venue) {
+                        if (!Business::where('foursquare_id', $venue['foursquare_id'])->count()) {
+                            $possibilities->push(Business::create($venue));
+                        } else {
+                            $possibilities->push(Business::where('foursquare_id', $venue['foursquare_id'])->get()->first());
+                        }
                     }
-                }
 
-                if ($possibilities->count()) {
-                    $priceReport->possible_businesses = serialize($possibilities->lists('id'));
-                    $priceReport->save();
+                    if ($possibilities->count()) {
+                        $priceReport->possible_businesses = serialize($possibilities->lists('id'));
+                        $priceReport->save();
+                    }
                 }
             }
         });

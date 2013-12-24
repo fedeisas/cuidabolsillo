@@ -38,6 +38,14 @@ Route::post(
     )
 );
 
+Route::post(
+    'set_business/{hash}/{business_id}',
+    array(
+        'as' => 'pricereport.setBusiness',
+        'uses' => 'PriceReportController@setBusiness'
+    )
+);
+
 Route::get(
     'about',
     array(

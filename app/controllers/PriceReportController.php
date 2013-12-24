@@ -37,6 +37,16 @@ class PriceReportController extends BaseController
         return Redirect::route('pricereport.show', $priceReport->hash);
     }
 
+    public function setBusiness($hash, $business_id)
+    {
+        $priceReportId = Hashids::decrypt($hash)[0];
+        $priceReport = PriceReport::find($priceReportId);
+        $priceReport->business_id = $business_id;
+        $priceReport->save();
+
+        return Response::json(array('success' => true), 200);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -71,7 +81,15 @@ class PriceReportController extends BaseController
         // IBP data
         $ibp = $this->productDataRepo->getIBP($priceReport->product_id, Session::get('province_id'));
 
+        // Chart
         $chartData = $this->chart->productChart($priceReport->product_id, Session::get('province_id'));
+
+        // Fetch possible Businesses
+        if ($priceReport->possible_businesses) {
+            $possibleBusinesses = Business::whereIn('id', unserialize($priceReport->possible_businesses))->get();
+        } else {
+            $possibleBusinesses = null;
+        }
 
         return View::make(
             'pricereports.show',
@@ -82,7 +100,8 @@ class PriceReportController extends BaseController
                 'deviation',
                 'priceHistory',
                 'ibp',
-                'chartData'
+                'chartData',
+                'possibleBusinesses'
             )
         );
     }

@@ -18,10 +18,4 @@ class HomeControllerTest extends TestCase
         $crawler = $this->client->request('GET', route('home'));
         $this->assertTrue($this->client->getResponse()->isOk());
     }
-
-    public function testAbout()
-    {
-        $crawler = $this->client->request('GET', route('about'));
-        $this->assertTrue($this->client->getResponse()->isOk());
-    }
 }

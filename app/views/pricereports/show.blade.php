@@ -58,6 +58,58 @@
 @stop
 
 @section('extrajs')
+
+@if ($possibleBusinesses)
+  <!-- Modal -->
+  <div class="modal fade" id="possibleBusinessesModal" tabindex="-1" role="dialog" aria-labelledby="possibleBusinessesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Ayudanos a ubicarte</h4>
+        </div>
+        <div class="modal-body">
+          <p><strong>Estás en alguno de estos lugares?</strong></p>
+          <div class="list-group">
+            @foreach ($possibleBusinesses as $business)
+              <a href="{{{ route('pricereport.setBusiness', array($priceReport->hash, $business->id)) }}}" class="list-group-item setBusiness">
+                {{{ $business->large_name }}}
+              </a>
+            @endforeach
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div> -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#possibleBusinessesModal').modal('show');
+
+      $('.setBusiness').on('click', function (e) {
+        e.preventDefault();
+        $.ajax({
+          type: 'POST',
+          url: $(this).attr('href'),
+          data: {
+            '_token': '{{{ csrf_token() }}}'
+          },
+          success: function() {
+            $('#possibleBusinessesModal').modal('hide');
+          },
+          error: function(){
+            $('#possibleBusinessesModal').modal('hide');
+          },
+          cache:false
+        });
+      });
+    });
+  </script>
+@endif
+
+
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   google.load("visualization", "1", {packages:["corechart"]});

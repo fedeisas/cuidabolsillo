@@ -16,6 +16,7 @@ class PriceReportTableSeeder extends Seeder
                 'latitude' => -26.830147171010314,
                 'longitude' => -65.2021293062202,
                 'business_id' => 2,
+                'possible_businesses' => serialize(array(1)),
                 'session_id' => 'SESSION-ID',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime
@@ -28,6 +29,7 @@ class PriceReportTableSeeder extends Seeder
                 'latitude' => -26.830147171010314,
                 'longitude' => -65.2021293062202,
                 'business_id' => 1,
+                'possible_businesses' => serialize(array(1)),
                 'session_id' => 'SESSION-ID',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime
@@ -40,6 +42,7 @@ class PriceReportTableSeeder extends Seeder
                 'latitude' => -26.830147171010314,
                 'longitude' => -65.2021293062202,
                 'business_id' => 2,
+                'possible_businesses' => serialize(array(1)),
                 'session_id' => 'SESSION-ID',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime
@@ -52,6 +55,7 @@ class PriceReportTableSeeder extends Seeder
                 'latitude' => -26.830147171010314,
                 'longitude' => -65.2021293062202,
                 'business_id' => 1,
+                'possible_businesses' => serialize(array(1)),
                 'session_id' => 'SESSION-ID',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime

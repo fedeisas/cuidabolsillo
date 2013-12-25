@@ -17,7 +17,7 @@
 <meta property="og:title" content="{{{ Config::get('custom.name') }}}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="{{{ route('home') }}}"/>
-<meta property="og:image" content="{{{ asset('img/ios/AppIcon76x76_2x.png') }}}"/>
+<meta property="og:image" content="{{{ asset('img/ios/AppIcon76x76_2.png') }}}"/>
 <meta property="og:site_name" content="{{{ Config::get('custom.name') }}}"/>
 <meta property="og:description" content="CuidaBolsillo.com te permite comparar precios en tu barrio para ahorrar dinero."/>
 
@@ -35,22 +35,22 @@
 <link rel="shortcut icon" sizes="96x96" href="{{{ asset('img/android/96.png') }}}">
 
 <!-- iOS 7 iPad (retina) -->
-<link href="{{{ asset('img/ios/AppIcon76x76_2x.png') }}}"
+<link href="{{{ asset('img/ios/AppIcon76x76_2.png') }}}"
       sizes="152x152"
       rel="apple-touch-icon">
 
 <!-- iOS 6 iPad (retina) -->
-<link href="{{{ asset('img/ios/AppIcon72x72_2x.png') }}}"
+<link href="{{{ asset('img/ios/AppIcon72x72_2.png') }}}"
       sizes="144x144"
       rel="apple-touch-icon">
 
 <!-- iOS 7 iPhone (retina) -->
-<link href="{{{ asset('img/ios/AppIcon60x60_2x.png') }}}"
+<link href="{{{ asset('img/ios/AppIcon60x60_2.png') }}}"
       sizes="120x120"
       rel="apple-touch-icon">
 
 <!-- iOS 6 iPhone (retina) -->
-<link href="{{{ asset('img/ios/AppIcon57x57_2x.png') }}}"
+<link href="{{{ asset('img/ios/AppIcon57x57_2.png') }}}"
       sizes="114x114"
       rel="apple-touch-icon">
 
@@ -72,14 +72,14 @@ rel="apple-touch-icon">
 <!-- Startup images -->
 
 <!-- iOS 6 & 7 iPad (retina, portrait) -->
-<link href="{{{ asset('img/splash/Default-Portrait_2x.png') }}}"
+<link href="{{{ asset('img/splash/Default-Portrait_2.png') }}}"
       media="(device-width: 768px) and (device-height: 1024px)
       and (orientation: portrait)
       and (-webkit-device-pixel-ratio: 2)"
       rel="apple-touch-startup-image">
 
 <!-- iOS 6 & 7 iPad (retina, landscape) -->
-<link href="{{{ asset('img/splash/Default-Landscape_2x.png') }}}"
+<link href="{{{ asset('img/splash/Default-Landscape_2.png') }}}"
       media="(device-width: 768px) and (device-height: 1024px)
       and (orientation: landscape)
       and (-webkit-device-pixel-ratio: 2)"
@@ -100,13 +100,13 @@ rel="apple-touch-icon">
       rel="apple-touch-startup-image">
 
 <!-- iOS 6 & 7 iPhone 5 -->
-<link href="{{{ asset('img/splash/Default-568h_2x.png') }}}"
+<link href="{{{ asset('img/splash/Default-568h_2.png') }}}"
       media="(device-width: 320px) and (device-height: 568px)
       and (-webkit-device-pixel-ratio: 2)"
       rel="apple-touch-startup-image">
 
 <!-- iOS 6 & 7 iPhone (retina) -->
-<link href="{{{ asset('img/splash/Default_2x.png') }}}"
+<link href="{{{ asset('img/splash/Default_2.png') }}}"
       media="(device-width: 320px) and (device-height: 480px)
       and (-webkit-device-pixel-ratio: 2)"
       rel="apple-touch-startup-image">

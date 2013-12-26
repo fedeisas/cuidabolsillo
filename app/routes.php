@@ -73,6 +73,7 @@ Route::get(
 Route::get(
     'products',
     array(
+        'before' => 'province',
         'as' => 'products.index',
         'uses' => 'ProductsController@index'
     )
@@ -81,6 +82,7 @@ Route::get(
 Route::get(
     'products/{hash}',
     array(
+        'before' => 'province',
         'as' => 'products.show',
         'uses' => 'ProductsController@show'
     )

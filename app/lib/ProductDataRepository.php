@@ -53,7 +53,7 @@ class ProductDataRepository
             return 0;
         }
 
-        if ($suggestedPrice == 0 || $priceReport == 0) {
+        if ($suggestedPrice == 0 || $priceReport->price == 0) {
             return 0;
         }
 

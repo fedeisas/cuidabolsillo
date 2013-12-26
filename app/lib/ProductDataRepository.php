@@ -53,6 +53,10 @@ class ProductDataRepository
             return 0;
         }
 
+        if ($suggestedPrice == 0 || $priceReport == 0) {
+            return 0;
+        }
+
         return ($priceReport->price - $suggestedPrice) / $suggestedPrice * 100;
     }
 }

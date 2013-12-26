@@ -32,7 +32,11 @@ class PriceReport extends Eloquent
                         if (!Business::where('foursquare_id', $venue['foursquare_id'])->count()) {
                             $possibilities->push(Business::create($venue));
                         } else {
-                            $possibilities->push(Business::where('foursquare_id', $venue['foursquare_id'])->get()->first());
+                            $possibilities->push(
+                                Business::where('foursquare_id', $venue['foursquare_id'])
+                                        ->get()
+                                        ->first()
+                            );
                         }
                     }
 

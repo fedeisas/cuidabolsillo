@@ -25,7 +25,3 @@ El código fuente está disponible en [Github](http://github.com/fedeisas/cuidab
 + [Fede Isas](http://fedeisas.com.ar)
 + [Gabriel Maza](https://www.facebook.com/gabrielmazarock)
 + [Guillermo Mazzucco](https://www.facebook.com/guillermo.mazzucco.7)
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/fedeisas/cuidabolsillo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
